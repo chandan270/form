@@ -1,0 +1,54 @@
+<%- include("partials/header"); -%>
+<body>
+<div id="header">
+    
+    <img src="/css/clipboard.png">
+    Forms
+    <div class="logout">
+        <form action="/logout" method="GET">
+            <button type="submit" class="btn btn-dark">Log out</button>
+        </form>
+    </div>
+</div>
+
+    <div class="box">
+        <div id="create">
+            
+            <p>Create a new form</p>
+        <a href="/form" id="add"><img src="/css/add.png"></a>
+    
+        </div>
+        
+        <div id="response">
+            <h1>View responses</h1>
+            <div class="row">
+                <%for(var i=0;i<l;i++){%>
+                    
+                <div class="col-sm-2">
+                    
+                    <a href="/responses/<%=forms[i]%>">
+                  <div class="card">
+                    <img src="/css/filled.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">form<%=i%></p>
+                    </div>
+                    </div>
+                </a>
+                  </div>
+                
+                  <%}%>
+                </div>
+                
+              </div>
+            <!-- <div id="filled">
+                
+            <img src="/css/filled.png">
+            <p>form<%=i%></p>
+            </div> -->
+            
+        </div>
+    </div>
+            <%- include("partials/footer"); -%>
+
+
+            

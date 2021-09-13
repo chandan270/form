@@ -1,23 +1,17 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <form>
+<%- include("partials/header"); -%>
+<body>
+    <img src="/css/clipboard.png" height="80px" width="80px">
+    Forms
+    <div id="form">
+        <form action="/storeresponses/<%=uniqueuser%>/<%=uniqueform%>" method="POST">
             <%for(var i=0;i<questions.length;i++){%>
+                <div class="queries">
             <label><%=questions[i]%></label>
-            <input type="text">
+            <textarea class="form-control" rows="2" name="answers<%=i%>"></textarea>
+        </div>
             <%}%>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-dark">Submit</button>
         </form>
+    </div>
         
-        <script src="" async defer></script>
-    </body>
-</html>
+        <%- include("partials/footer"); -%>
