@@ -1,32 +1,37 @@
-<!DOCTYPE html>
+<%- include("partials/header"); -%>
+<body>
+    <img src="/css/clipboard.png" height="80px" width="80px">
+    Forms
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
+    <div id="form">
+        <!-- <div class="card"> -->
+            <!-- <ul class="list-group list-group-flush"> -->
         <%for(var i=0;i<questions.length;i++){%>
-            <div>
+            <div class="written">
                 <form action="/deleteQuery" method="POST">
-                <%=questions[i]%>
-                <button type="submit" value="<%=questions[i]%>" name="delete">Delete</button>
+                    <!-- <li class="list-group-item"></li> -->
+                    <%=questions[i]%><br>
+                    <hr>
+                    <button type="submit" value="<%=questions[i]%>" name="delete"><i class="fas fa-trash-alt"></i></button>
+                
                 </form>
             </div>
             <%}%>
+        <!-- </ul> -->
+    <!-- </div> -->
         <form action="/form" method="POST">
-            <div>
-                <input type="text" placeholder="Question" name="question">
-                <button type="submit">Add</button>
+            <div id="writing">
+                <!-- <input type="text" placeholder="Question" name="question">
+                <input class="form-control" type="text" placeholder="Question" name="question"> -->
+                <textarea class="form-control" rows="2" name="question"></textarea>
+                <hr>
+                <button type="submit"><i class="fas fa-plus"></i></button>
             </div>
         </form>
-        <form action="/createForm" method="POST">
-            <button>Create</button>
+        <form action="/createForm" method="POST" class="create">
+            <%if(uniqueform!=0){%>
+            <a href="/createForm/<%=uniqueuser%>/<%=uniqueform%>"><button type="button" class="btn btn-dark">Create</button></a>
+            <%}%>
         </form>
-        <script src="" async defer></script>
-    </body>
-</html>
+    </div>
+        <%- include("partials/footer"); -%>

@@ -1,0 +1,33 @@
+<%- include("partials/header"); -%>
+<body>
+    <div id="header">
+        
+        <img src="/css/clipboard.png">
+        Forms
+    </div>
+
+    <div class="result">
+    <h1>Responses</h1>
+        <table>
+            <tr>
+                <th>Questions</th>
+                <%for(var i=0;i<questions.length;i++){%>
+                <th>
+                    <%=questions[i]%>
+                </th>
+                <%}%>
+            </tr>
+            <%for(var i=0;i<answers.length;){%>
+            <tr>
+                <td>Response <%=i/questions.length+1%></td>
+                <%for(var j=0;j<questions.length;j++,i++){%>
+                <td>
+                    <%=answers[i]%>
+                </td>
+                <%}%>
+            </tr>
+            <%}%>
+        </table>
+    </div>
+        
+        <%- include("partials/footer"); -%>
