@@ -1,10 +1,13 @@
+require('dotenv').config();
 const express=require("express");
 const ejs=require("ejs");
 const mongoose=require("mongoose");
 const session=require("express-session");
 const passport=require("passport");
 const passportLocalMongoose=require("passport-local-mongoose");
-mongoose.connect('mongodb://localhost:27017/formDB', {useNewUrlParser: true, useUnifiedTopology: true});
+
+const URI = process.env.URI;
+mongoose.connect(URI,{useNewUrlParser:true,useUnifiedTopology: true});
 mongoose.set("useCreateIndex",true);
 const app=express();
 
@@ -298,4 +301,9 @@ app.get("/logout",function(req,res){
 });
 
 
-app.listen(3000);
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
+
+app.listen(port, host, function() {
+    console.log("Server started.......");
+});
