@@ -1,7 +1,10 @@
 <%- include("partials/header"); -%>
 <body>
-    <img src="/css/clipboard.png" height="80px" width="80px">
-    Forms
+    <div id="header">
+        
+        <img src="/css/clipboard.png">
+        Forms
+    </div>
     <div id="form">
         <form action="/storeresponses/<%=uniqueuser%>/<%=uniqueform%>" method="POST">
             <%for(var i=0;i<questions.length;i++){%>
