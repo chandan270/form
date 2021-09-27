@@ -164,7 +164,7 @@ app.post("/deleteQuery",function(req,res){
 
 app.get("/createForm/:uniqueuser/:uniqueform",function(req,res){
 
-    
+    id=0;
     User.findById(req.params.uniqueuser,function(err,foundUser){
 
         if(err)
@@ -184,11 +184,6 @@ app.get("/createForm/:uniqueuser/:uniqueform",function(req,res){
 
 });
 
-app.post("/createForm",function(req,res){
-
-    res.redirect("/createForm/"+req.user.id+"/"+id);
-
-});
 
 app.get("/register",function(req,res){
     res.render("register");

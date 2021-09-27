@@ -4,12 +4,11 @@
     Forms
 
     <div id="form">
-        <!-- <div class="card"> -->
-            <!-- <ul class="list-group list-group-flush"> -->
+
         <%for(var i=0;i<questions.length;i++){%>
             <div class="written">
                 <form action="/deleteQuery" method="POST">
-                    <!-- <li class="list-group-item"></li> -->
+
                     <%=questions[i]%><br>
                     <hr>
                     <button type="submit" value="<%=questions[i]%>" name="delete"><i class="fas fa-trash-alt"></i></button>
@@ -17,21 +16,19 @@
                 </form>
             </div>
             <%}%>
-        <!-- </ul> -->
-    <!-- </div> -->
+
         <form action="/form" method="POST">
             <div id="writing">
-                <!-- <input type="text" placeholder="Question" name="question">
-                <input class="form-control" type="text" placeholder="Question" name="question"> -->
+                
                 <textarea class="form-control" rows="2" name="question"></textarea>
                 <hr>
                 <button type="submit"><i class="fas fa-plus"></i></button>
             </div>
         </form>
-        <form action="/createForm" method="POST" class="create">
+
             <%if(uniqueform!=0){%>
             <a href="/createForm/<%=uniqueuser%>/<%=uniqueform%>"><button type="button" class="btn btn-dark">Create</button></a>
             <%}%>
-        </form>
+
     </div>
         <%- include("partials/footer"); -%>
